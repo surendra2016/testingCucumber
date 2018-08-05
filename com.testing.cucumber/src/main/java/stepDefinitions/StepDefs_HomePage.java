@@ -63,6 +63,18 @@ public class StepDefs_HomePage extends TestBase {
 		homePage.clickOnContinueButton();
 	}
 	
+	@When("^I try to click continue button$")
+	public void i_try_to_click_continue_button() throws Throwable {
+		System.out.println("Clicking continue..");
+		homePage.clickOnContinueButton();
+	}
+
+	@When("^I verify that I must enter the name$")
+	public void i_verify_that_I_must_enter_the_name() throws Throwable {
+		System.out.println("Clicking continue should not be possible if user has not entered the name..");
+		homePage.verifyMyName();
+	}
+	
 	@And("^select an animal to adopt$")
 	public void select_an_animal_to_adopt() throws Throwable {
 		System.out.println("Select an animal..");
@@ -70,11 +82,30 @@ public class StepDefs_HomePage extends TestBase {
 
 	}
 	
+	@And("^select another animal to adopt$")
+	public void select_another_animal_to_adopt() throws Throwable {
+		System.out.println("Select an animal..");
+		homePage.selectAnotherAnimal();
+
+	}
+	
+	@Then("^do not select an animal$")
+	public void do_not_select_an_animal() throws Throwable {
+		System.out.println("User has selected no animal..");
+	}
+
+	@Then("^I should not see the confirmation text$")
+	public void i_should_not_see_the_confirmation_text() throws Throwable {
+		homePage.verifyConfirmationForNoSelection();
+	}
+	
 	@And("^I verify the confirmation text$")
 	public void i_verify_the_confirmation_text() throws Throwable {
 		System.out.println("Showing the confirmation text..");
 		homePage.verifyConfirmation();
 	}
+	
+	
 	
 	@And("^close the browser$")
 	public void close_the_browser() throws Throwable {

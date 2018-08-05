@@ -70,7 +70,13 @@ public class Page_HomePage extends Page_BasePage {
 	
 	public void selectAnAnimal() {
 		Select drpAnimal = new Select(driver.findElement(By.className("ng-pristine")));
-		drpAnimal.selectByIndex(1);
+		//drpAnimal.selectByIndex(3);
+		drpAnimal.selectByVisibleText("Nemo the Fish");
+	}
+	
+	public void selectAnotherAnimal() {
+		Select drpAnimal = new Select(driver.findElement(By.className("ng-pristine")));
+		drpAnimal.selectByIndex(2);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -80,6 +86,16 @@ public class Page_HomePage extends Page_BasePage {
 			
 			System.out.println("The expected confirmation text is : "+confirmation.getText());
 			Assert.assertEquals("Thank you for your selection. Your animal adoption papers will be sent to you shortly with a lovely card from your selected animal.", confirmation.getText());
+		}
+	}
+	
+	public void verifyConfirmationForNoSelection(){
+		if(driver.findElement(By.xpath("//*[@id=\"table1\"]/tbody/tr[2]/td/div/p")).isDisplayed()) {
+			System.out.println("The expected confirmation text should not be seen..!!");
+			assertFalse(true);
+		}
+		else {
+			assertTrue(true);
 		}
 	}
 	
