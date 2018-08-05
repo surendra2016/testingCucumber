@@ -32,5 +32,10 @@
 	    <version>2.4.0</version>
 	    <scope>test</scope>
 	</dependency>
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-chrome-driver</artifactId>
+	    <version>3.13.0</version>
+	</dependency>
   </dependencies>
 </project>
